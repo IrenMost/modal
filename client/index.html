@@ -10,22 +10,18 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">halihó</div>
     <!-- Trigger/Open The Modal -->
-    <dialog open>
-    <button id="myBtn">Open Modal</button>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-
-    </div>
-</dialog>
+    <dialog id="modal" open>
+        <div id="controller">
+          <button id="prev-button">Prev</button>
+          <button id="next-button">Next</button>
+          <button onclick=closeDialog() id="close">Close</button>
+          
+          </div>
+        <div id="movie-detail"></div>
+  </dialog>
+  
 </body>
 
 </html>
