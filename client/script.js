@@ -1,33 +1,31 @@
 console.log("telapo");
 
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
 
-const modal = document.getElementById("modal");
-const detail = document.getElementById("movie-detail");
-const titleList = document.querySelectorAll(".movie");
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
 
-window.addEventListener("click", async function (event) {
-  try {
-  {
-    console.log(event.target.value);
-        document.getElementById("root").insertAdjacentHTML("afterbegin", `dejó`);
-        showDialog();
-      
-    }
-  } catch (error) {
-    console.error("Error:", error);
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
   }
 });
 
-const closeButton = document.getElementById("close");
-
-function showDialog() {
-  modal.show();
-}
-
-function closeDialog() {
-  modal.close();
-}
-
-function removeCloseButton(){
-  closeButton.remove()
-}
+// open modal function
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+openModalBtn.addEventListener("click", openModal);
